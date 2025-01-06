@@ -21,18 +21,18 @@ export default function PostGrid() {
 
   return (
     <>
-      <div className="mx-auto max-w-6xl md:max-w-4xl">
+      <div className="mx-auto max-w-6xl md:max-w-4xl ">
         <Masonry
-        // brakepoint ตามขนาดจอเมื่อย่อขยาย
+          // brakepoint ตามขนาดจอเมื่อย่อขยาย
           breakpointCols={{ default: 4, 1200: 3, 768: 2 }}
-          className="my-masonry-grid "
+          className="my-masonry-grid mb-2"
           columnClassName="my-masonry-grid_column"
         >
           {postGrid.map((post) => (
             <div key={post.post}>
               <Image
                 src={post.image}
-                alt="post"
+                alt={post.name}
                 height={500}
                 width={500}
                 className="object-cover size-full rounded-lg items-center"
@@ -45,3 +45,4 @@ export default function PostGrid() {
   );
 }
 
+//1:06:11

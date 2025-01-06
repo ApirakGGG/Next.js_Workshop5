@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+import { Theme } from "@radix-ui/themes";
 import "@/app/globals.css"
+import "@radix-ui/themes/styles.css";
 
 //font
 const poppins = Poppins({
@@ -20,7 +22,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.className} antialiased`}>{children}</body>
+      <body className={`${poppins.className} antialiased`}>
+      <Theme>
+      {children}
+      </Theme>
+      </body>
     </html>
   );
 }
+
