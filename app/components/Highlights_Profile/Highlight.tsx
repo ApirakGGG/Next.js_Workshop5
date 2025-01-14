@@ -12,7 +12,7 @@ export default async function Highlight() {
         {highlightImage.map((highlight) => (
           <div
             key={highlight.id}
-            className="items-center rounded-full p-1.5 bg-gradient-to-t from-orange-500 to-blue-500"
+            className="cursor-pointer items-center rounded-full p-1.5 bg-gradient-to-t from-orange-500 to-blue-500"
           >
             <div className="p-1 items-center rounded-full bg-gray-200 ">
               <Image

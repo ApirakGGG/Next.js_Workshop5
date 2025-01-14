@@ -3,10 +3,22 @@ import { CiSettings } from "react-icons/ci";
 import { IoMdCheckmark } from "react-icons/io";
 import PostGrid from "@/app/components/PostGrid";
 import Link from "next/link";
-
 import Image from "next/image";
 import Highlight from "@/app/components/Highlights_Profile/Highlight";
+import { auth } from "@/auth";
+import { prisma } from "@/utils/db";
+
 export default async function Profile() {
+  //session
+  const session = await auth();
+  //get user profile data
+  const profile = await prisma.profile.findFirstOrThrow({
+    where: {
+      id: session?.user?.id as string ,
+      email: session?.user?.email as string || "",
+    },
+  });
+  // 2:09:00
   return (
     <main>
       {/* nav section */}
@@ -46,7 +58,7 @@ export default async function Profile() {
         {/* username */}
         <div className="flex justify-center items-center">
           <div className="mt-3 gap-2 flex items-center">
-            <p className=" font-bold"> _aaaaajsw</p>
+            <p className=" font-bold"> {profile.username}</p>
             <IoMdCheckmark className="w-5 h-5 p-1 items-center bg-blue-500 rounded-full " />
           </div>
         </div>
@@ -63,16 +75,17 @@ export default async function Profile() {
 
       {/* Details section */}
       <section>
-        <div className="mt-5 flex justify-center ">
+        <div className="mt-5 flex justify-center">
           <div className="gap-1">
             <h2 className="font-bold">Apirak Jansawang</h2>
-            <p className="text-gray-500">Home Businesses</p>
+            <p className="text-gray-500">{profile.subtitle}</p>
+            <p className="text-slate-500 text-sm">{profile.bio}</p>
           </div>
         </div>
       </section>
 
-       {/* highlight section */}
-       <section className="mt-2 px-8 py-1">
+      {/* highlight section */}
+      <section className="mt-2 px-8 py-1">
         <Highlight />
       </section>
 
