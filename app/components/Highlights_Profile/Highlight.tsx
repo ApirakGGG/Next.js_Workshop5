@@ -8,7 +8,7 @@ export default async function Highlight() {
 
   return (
     <>
-      <div className="relative space-x-5 flex ">
+      <div className="relative space-x-5 flex sm:px-10">
         {highlightImage.map((highlight) => (
           <div
             key={highlight.id}
@@ -20,7 +20,7 @@ export default async function Highlight() {
                 alt={highlight.heighlight}
                 width={100}
                 height={100}
-                className="object-cover rounded-full border overflow-hidden "
+                className="object-cover rounded-full border overflow-hidden"
               />
             </div>
           </div>

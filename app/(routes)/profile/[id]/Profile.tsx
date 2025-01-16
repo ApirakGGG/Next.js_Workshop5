@@ -14,18 +14,19 @@ export default async function Profile() {
   //get user profile data
   const profile = await prisma.profile.findFirstOrThrow({
     where: {
-      id: session?.user?.id as string ,
-      email: session?.user?.email as string || "",
+      id: session?.user?.id as string,
+      email: (session?.user?.email as string) || "",
     },
   });
-  // 2:09:00
+  console.log("data", profile);
+
   return (
     <main>
       {/* nav section */}
       <section className="sticky top-0">
         <div className="flex justify-between px-8 py-5 items-center">
           <button>
-            <Link href={"/"}>
+            <Link href={"/"} className="transition ease-in-out duration-500" >
               <FaChevronLeft className="w-5 h-5" />
             </Link>
           </button>
@@ -77,7 +78,7 @@ export default async function Profile() {
       <section>
         <div className="mt-5 flex justify-center">
           <div className="gap-1">
-            <h2 className="font-bold">Apirak Jansawang</h2>
+            <h2 className="font-bold text-sm">{profile.name}</h2>
             <p className="text-gray-500">{profile.subtitle}</p>
             <p className="text-slate-500 text-sm">{profile.bio}</p>
           </div>

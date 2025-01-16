@@ -24,7 +24,7 @@ export default function PostGrid() {
       <div className="mx-auto max-w-6xl md:max-w-4xl ">
         <Masonry
           // brakepoint ตามขนาดจอเมื่อย่อขยาย
-          breakpointCols={{ default: 4, 1200: 3, 768: 2 }}
+          breakpointCols={{ default: 4, 1200: 3, 860: 2 }}
           className="my-masonry-grid mb-2"
           columnClassName="my-masonry-grid_column"
         >
@@ -35,7 +35,8 @@ export default function PostGrid() {
                 alt={post.name}
                 height={500}
                 width={500}
-                className="object-cover size-full rounded-lg items-center"
+                className="object-cover size-full rounded-md items-center 
+                ease-in-out transform duration-300 cursor-pointer"
               />
             </div>
           ))}
