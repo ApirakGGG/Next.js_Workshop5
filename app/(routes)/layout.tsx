@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import { Theme } from "@radix-ui/themes";
-import "@/app/globals.css"
+import "@/app/globals.css";
 import "@radix-ui/themes/styles.css";
-
+import MobileToolBar from "../components/MobileToolBar/MobileToolBar";
+import DesktopToolBar from "../components/DesktopToolBar/DesktopToolBar";
 //font
 const poppins = Poppins({
   subsets: ["latin"],
@@ -22,12 +23,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.className} antialiased`}>
-      <Theme>
-      {children}
-      </Theme>
+      <body className={`${poppins.className} antialiased p-4`}>
+        <Theme>
+          <div className="flex">
+            <DesktopToolBar />
+            <div>{children}</div>
+          </div>
+          <MobileToolBar />
+        </Theme>
       </body>
     </html>
   );
 }
-

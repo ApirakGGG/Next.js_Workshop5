@@ -13,6 +13,7 @@ export default async function Setting() {
       email: (session?.user?.email as string) || "",
     },
   });
+  // เช็คSession 
   // if (!session) {
   //   return (
   //     <p className="ml-5 mt-5 text-red-500 font-bold">not found session.</p>
@@ -24,7 +25,7 @@ export default async function Setting() {
         <button className="mb-10">
           <Link href={"/profile"} className="flex space-x-2">
             <FaChevronLeft className="w-5 h-5" />
-            <p className="font-bold hover:underline">back</p>
+            <p className="font-bold hover:underline sm:hidden">back</p>
           </Link>
         </button>
         {/*  */}

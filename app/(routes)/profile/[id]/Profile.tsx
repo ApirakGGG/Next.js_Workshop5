@@ -18,16 +18,18 @@ export default async function Profile() {
       email: (session?.user?.email as string) || "",
     },
   });
+  // log profile data
   console.log("data", profile);
 
   return (
     <main>
       {/* nav section */}
-      <section className="sticky top-0">
+      <section className="sticky top-0 bg-white z-10">
         <div className="flex justify-between px-8 py-5 items-center">
           <button>
-            <Link href={"/"} className="transition ease-in-out duration-500" >
+            <Link href={"/"} className="flex hover:underline space-x-2 ">
               <FaChevronLeft className="w-5 h-5" />
+              <p className="font-bold sm:block">back</p>
             </Link>
           </button>
           <div className="items-center"></div>
@@ -41,13 +43,13 @@ export default async function Profile() {
 
       {/* Profiles section */}
       <section>
-        <div className="flex justify-center">
+        <div className="flex justify-center ">
           <div className="items-center bg-gradient-to-t from-orange-500 to-sky-500 p-1.5 rounded-full">
             {/* border cover profile */}
             <div className="items-center bg-white p-1 rounded-full">
               {/* profile image */}
               <Image
-                src={"/asset/js.png"}
+                src={profile.avarta as string}
                 alt="profile"
                 width={100}
                 height={100}

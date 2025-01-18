@@ -36,7 +36,7 @@ export default function PostGrid() {
                 height={500}
                 width={500}
                 className="object-cover size-full rounded-md items-center 
-                ease-in-out transform duration-300 cursor-pointer"
+                ease-in-out duration-700 delay-150 transition hover:-translate-y-5 hover:scale-90 cursor-pointer"
               />
             </div>
           ))}

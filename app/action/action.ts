@@ -4,7 +4,7 @@ export async function UpdateProfile(form: FormData, session: string) {
   const newUserDataInfo = {
     // create from client
     username: (form.get("username") as string) || "",
-    avarta: form.get("profileurl") as string | null,
+    avarta: form.get("profile") as string | null,
     name: (form.get("name") as string) || "",
     subtitle: (form.get("subtitle") as string) || "",
     bio: (form.get("bio") as string) || "",

@@ -25,11 +25,10 @@ export default function SettingForm({
   };
 
   const [file, setFile] = useState<File>();
-  const [profileurl, setProfileUrl] = useState("");
+  const [profileurl, setProfileUrl] = useState(profile.avarta as string); //set current profile
   const [uploading, setUpLoading] = useState(false);
   // console.log(profileurl);
-  
-  //2:25:10
+
   useEffect(() => {
     const uploadfile = async () => {
       if (file) {
@@ -43,10 +42,9 @@ export default function SettingForm({
             },
           });
           // เก็บUrl เพื่อดึง image ที่อยู่บน clound
-          const ipfsUrl = await response.data
+          const ipfsUrl = await response.data;
           setProfileUrl(ipfsUrl);
           console.log("imgUrl", ipfsUrl);
-          
         } catch (err) {
           console.error("err", err);
         } finally {
@@ -71,7 +69,7 @@ export default function SettingForm({
           router.refresh();
         }}
       >
-        <input type="hidden" name="profileurl" id={profileurl} />
+        <input type="hidden" name="profile" value={profileurl} />
         <Flex direction={"column"} gap={"3"}>
           {/* update profile */}
           <div className="flex justify-center items-center ">
@@ -85,7 +83,7 @@ export default function SettingForm({
                 className="size-30 rounded-full border"
               />
             ) : (
-              // current profile
+              //current profile
               <Image
                 src={profile.avarta as string}
                 alt="profile"

@@ -8,7 +8,7 @@ export default async function Highlight() {
 
   return (
     <>
-      <div className="relative space-x-5 flex sm:px-10">
+      <div className="relative space-x-5 flex ">
         {highlightImage.map((highlight) => (
           <div
             key={highlight.id}
