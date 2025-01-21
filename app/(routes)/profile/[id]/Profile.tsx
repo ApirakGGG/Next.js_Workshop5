@@ -27,7 +27,7 @@ export default async function Profile() {
       <section className="sticky top-0 bg-white z-10">
         <div className="flex justify-between px-8 py-5 items-center">
           <button>
-            <Link href={"/"} className="flex hover:underline space-x-2 ">
+            <Link href={"/"} className="flex hover:underline space-x-2 lg:hidden ">
               <FaChevronLeft className="w-5 h-5" />
               <p className="font-bold sm:block">back</p>
             </Link>

@@ -13,7 +13,7 @@ export default async function Setting() {
       email: (session?.user?.email as string) || "",
     },
   });
-  // เช็คSession 
+  // เช็คSession
   // if (!session) {
   //   return (
   //     <p className="ml-5 mt-5 text-red-500 font-bold">not found session.</p>
@@ -21,18 +21,18 @@ export default async function Setting() {
   // }
   return (
     <>
-      <div className="mx-auto max-w-max-w-5xl md:max-w-3xl mt-5">
-        <button className="mb-10">
-          <Link href={"/profile"} className="flex space-x-2">
+      <div className="mx-auto max-w-5xl mt-5 md:max-w-3xl">
+        <button className="mb-10 ">
+          <Link href={"/profile"} className="flex space-x-2 lg:hidden">
             <FaChevronLeft className="w-5 h-5" />
             <p className="font-bold hover:underline sm:hidden">back</p>
           </Link>
         </button>
         {/*  */}
-        <SettingForm 
-        profile={profile} //ดึงค่าdefault จากprofile
-        session={(session?.user?.email as string) || ""} 
-        />
+        <SettingForm
+          profile={profile} //ดึงค่า default จากprofile
+          session={(session?.user?.email as string) || ""}
+        />  
       </div>
     </>
   );

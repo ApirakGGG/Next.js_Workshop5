@@ -23,11 +23,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.className} antialiased p-4`}>
+      <body className={`${poppins.className} antialiased`}>
         <Theme>
-          <div className="flex">
+          <div className="flex min-h-screen">
             <DesktopToolBar />
-            <div>{children}</div>
+            <div className="flex p-4 pt-6 justify-around w-full md:justify-center">
+              <div>{children}</div>
+            </div>
           </div>
           <MobileToolBar />
         </Theme>
